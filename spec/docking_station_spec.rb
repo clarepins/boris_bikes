@@ -28,4 +28,13 @@ describe DockingStation do
     expect { docking_station.dock(Bike.new) }.to raise_error.with_message("Docking station is full mate!!")
   end
 
+  it "does not release broken bikes" do
+    bike_broken = Bike.new
+    bike_broken.is_working = false
+    bike_working = Bike.new
+    docking_station.dock(bike_working)
+    docking_station.dock(bike_broken)
+    expect ( docking_station.release_bike.is_working ).to eq(true)
+  end
+
 end

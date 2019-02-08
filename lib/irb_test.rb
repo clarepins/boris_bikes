@@ -6,6 +6,7 @@ docking_station = DockingStation.new(40)
 
 bike.is_working = false
 docking_station.dock(bike)
+docking_station.release_bike
 
 
 # docking_station.dock(bike)
